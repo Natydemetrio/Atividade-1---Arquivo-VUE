@@ -1,15 +1,22 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PaginaPrincipal msg="Welcome to Your Vue.js App"/>
+  <ImagensDiversas msg="Welcome to Your Vue.js App"/>
+  <VideoUnico msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PaginaPrincipal from './components/PaginaPrincipal.vue'
+import ImagensDiversas from './components/ImagensDiversas.vue'
+import VideoUnico from './components/VideoUnico.vue';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    PaginaPrincipal,
+    ImagensDiversas,
+    VideoUnico
+}
 }
 </script>
 
