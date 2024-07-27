@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Animais Extraordinários</title>
+        <h1>Vídeos</h1>
     </head>
 
     <body>
@@ -23,9 +23,6 @@
 <script>
 export default {
     name: 'VideoUnico',
-    props: {
-        msg: String
-    }
 };
 </script>
     

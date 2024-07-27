@@ -1,23 +1,46 @@
 <template>
-  <PaginaPrincipal msg="Welcome to Your Vue.js App"/>
-  <ImagensDiversas msg="Welcome to Your Vue.js App"/>
-  <VideoUnico msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <nav>
+      <router-link to="/">Página Principal</router-link> |
+      <router-link to="/imagens-diversas">Animais Extraordinários</router-link> |
+      <router-link to="/video-unico">Vida Selvagem</router-link>
+    </nav>
+    <router-view></router-view>
+  </div>
+
+<div id="app">
+    <nav>
+      <!-- <button @click="loadComponent('PaginaPrincipal')">Página Principal</button> | -->
+      <button @click="loadComponent('ImagensDiversas')">Imagens Diversas</button> |
+      <button @click="loadComponent('VideoUnico')">Vídeo Único</button>
+    </nav>
+    <PaginaPrincipal />
+    <component :is="currentComponent" v-if="currentComponent"></component>
+  </div>
+  
+  
+
 </template>
-
 <script>
-import PaginaPrincipal from './components/PaginaPrincipal.vue'
-import ImagensDiversas from './components/ImagensDiversas.vue'
-import VideoUnico from './components/VideoUnico.vue';
-
+import { defineAsyncComponent } from 'vue';
+import PaginaPrincipal from './components/PaginaPrincipal.vue';
 
 export default {
   name: 'App',
   components: {
-    PaginaPrincipal,
-    ImagensDiversas,
-    VideoUnico
-}
-}
+    PaginaPrincipal
+  },
+  data() {
+    return {
+      currentComponent: null
+    };
+  },
+  methods: {
+    loadComponent(componentName) {
+      this.currentComponent = defineAsyncComponent(() => import(`./components/${componentName}.vue`));
+    }
+  }
+};
 </script>
 
 <style>
@@ -29,4 +52,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
